@@ -1,0 +1,27 @@
+[submodule "pack/lsp/start/lsp-zero"]
+	path = pack/lsp/start/lsp-zero
+	url = https://github.com/VonHeikemen/lsp-zero.nvim.git
+[submodule "pack/lsp/start/mason"]
+	path = pack/lsp/start/mason
+	url = https://github.com/williamboman/mason.nvim.git
+[submodule "pack/lsp/start/mason-lspconfig"]
+	path = pack/lsp/start/mason-lspconfig
+	url = https://github.com/williamboman/mason-lspconfig.nvim.git
+[submodule "pack/lsp/start/nvim-lspconfig"]
+	path = pack/lsp/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig.git
+[submodule "pack/widgets/start/fzf-lua"]
+	path = pack/widgets/start/fzf-lua
+	url = https://github.com/ibhagwan/fzf-lua.git
+[submodule "pack/common/start/web-devicons"]
+	path = pack/common/start/web-devicons
+	url = https://github.com/nvim-tree/nvim-web-devicons.git
+[submodule "pack/lsp/start/nvim-cmp"]
+	path = pack/lsp/start/nvim-cmp
+	url = https://github.com/hrsh7th/nvim-cmp.git
+[submodule "pack/lsp/start/cmp-nvim-lsp"]
+	path = pack/lsp/start/cmp-nvim-lsp
+	url = https://github.com/hrsh7th/cmp-nvim-lsp.git
+[submodule "pack/lsp/start/luasnip"]
+	path = pack/lsp/start/luasnip
+	url = https://github.com/L3MON4D3/LuaSnip.git
