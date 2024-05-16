@@ -34,3 +34,6 @@
 [submodule "pack/widgets/start/bufferline"]
 	path = pack/widgets/start/bufferline
 	url = https://github.com/akinsho/bufferline.nvim.git
+[submodule "pack/widgets/start/nvim-tree"]
+	path = pack/widgets/start/nvim-tree
+	url = https://github.com/nvim-tree/nvim-tree.lua.git
