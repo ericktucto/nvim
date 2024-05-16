@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+import sys
+import os
+import re
+import subprocess
+
+def preview():
+    lazy = "/home/erick/.local/share/nvim/lazy/fzf.vim/bin/preview.sh"
+    native = "/home/erick/.dotfiles/nvim/pack/widget/start/fzf.vim/bin/preview.sh"
+    if os.path.isfile(lazy):
+        return lazy
+    elif os.path.isfile(native):
+        return native
+    else:
+        raise Exception("No tienes instalado ningun previsualizador.")
+
+# ESTE SCRIPT ES PARA MOSTRAR CORRECTAMENTE EL PREVIEW AL HACER BUSQUEDA DE CONTENIDOS
+
+def obtener(entrada):
+    patron = "^(.*):(\\d*):(.*)"
+    r = re.compile(patron)
+    matched = r.match(entrada)
+    return (entrada, 0, "") if matched is None else matched.groups()
+
+directorio_actual = os.getcwd()
+archivo = sys.argv[1]
+resultado = os.path.abspath(os.path.join(directorio_actual, archivo))
+(ruta, linea, busqueda) = obtener(resultado)
+subprocess.run([preview(), f"{ruta}:{linea}"])
