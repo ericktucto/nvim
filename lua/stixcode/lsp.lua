@@ -1,24 +1,20 @@
-local M = {}
+local lsp_zero = require("lsp-zero")
+local defaultOptions = require("stixcode.configs.lsp")
+lsp_zero.on_attach(function(_, bufnr)
+  lsp_zero.default_keymaps({buffer = bufnr})
+end)
 
-function M:all()
-  local row, _ = unpack(vim.api.nvim_win_get_cursor(0))
-  return vim.diagnostic.get(0, { lnum = row - 1 })
-end
+require("mason").setup({})
+require("mason-lspconfig").setup({
+  handlers = {
+    function(server_name)
+      local options  = {}
 
-function M:top()
-  local diagnostics = M:all()
-  if #diagnostics > 0 then
-    local top = diagnostics[1]
-    -- find the top diagnostic
-    for _, d in ipairs(diagnostics) do
-      if d.severity < top.severity then
-        top = d
+      if defaultOptions[server_name] ~= nil then
+        options = defaultOptions[server_name]
       end
-    end
-    return top
-  else
-    return nil
-  end
-end
 
-return M
+      require("lspconfig")[server_name].setup(options)
+    end
+  }
+})

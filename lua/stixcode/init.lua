@@ -1,1 +1,2 @@
-require "stixcode.neovim"
+require "stixcode.lsp"
+require "stixcode.widgets"

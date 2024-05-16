@@ -1,31 +1,7 @@
 -- MODOS PARA LA BUSQUEDA DE ARCHIVOS EN UN PROYECTO
 local preview = string.format('%s/scripts/previewer {}', vim.fn.stdpath('config'))
 function Searching(view)
-  if (view == 'git') then
-    local excludedDir = table.concat({
-      "",
-      '"./.expo/*"',
-      '"./target/*"',
-      '"./venv/*"',
-      '"./.expo-shared/*"',
-      '"./.git/*"',
-      '"./vendor/*"',
-      '"*/node_modules/*"',
-      '"./docker/*"',
-      '"./coverage/*"',
-      '"./clockwork/*"',
-      -- Cartero
-      '"./build/*"',
-      '"./install/*"',
-      '"./run/*"',
-    }, " -not -path ")
-    vim.fn["fzf#run"]({
-      options = { '--layout=reverse', '--preview', preview },
-      window = { width = 1, height = 1 },
-      source = 'find . -name "*.*" -type f'..excludedDir,
-      sink = "e"
-    })
-  elseif (view == 'buffer') then
+  if (view == 'buffer') then
     vim.fn['fzf#vim#buffers']({
         options = { '--layout=reverse' },
         window = { width = 1, height = 1 }
@@ -101,12 +77,9 @@ vim.cmd([[
   command! -nargs=* -bang FWord lua FindWord(<q-args>, <bang>0)
 ]])
 
-require("fzf-lua").setup({})
-
--- local mapper = require("mappings").mapper
-
+local mapper = require("common.mapper").map
 -- Search file
--- mapper("", "<c-p>", function() Searching("git") end)
+mapper('', '<c-p>', function () require('fzf-lua').files({ resume = true }) end)
 
 -- Searching on stage (git)
 -- mapper("", "<Leader>s", function() Searching('git-status') end)

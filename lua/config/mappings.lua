@@ -1,7 +1,4 @@
-local M = {}
-local mapper = function (mode, shortcut, command)
-  vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = true})
-end
+local mapper = require("common.mapper").mapper
 
 -- NAVEGAR EN EL ARCHIVO
 mapper("", "<c-i>", "<c-b>")
@@ -22,7 +19,3 @@ mapper("i", "<Leader>m", "<Esc> :SymbolsOutline<CR>")
 vim.cmd([[
   tnoremap <C-n> <C-\><C-n>
 ]])
-
-M.mapper = mapper
-
-return M

@@ -1,4 +1,4 @@
-local lsp = require('stixcode.lsp')
+local lsp = require('stixcode.lsp-lualine')
 
 local default_options = {
   options = {

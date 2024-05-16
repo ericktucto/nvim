@@ -25,3 +25,12 @@
 [submodule "pack/lsp/start/luasnip"]
 	path = pack/lsp/start/luasnip
 	url = https://github.com/L3MON4D3/LuaSnip.git
+[submodule "pack/formatter/start/editorconfig"]
+	path = pack/formatter/start/editorconfig
+	url = https://github.com/gpanders/editorconfig.nvim.git
+[submodule "pack/formatter/start/catppuccin-theme"]
+	path = pack/formatter/start/catppuccin-theme
+	url = https://github.com/catppuccin/nvim.git
+[submodule "pack/widgets/start/bufferline"]
+	path = pack/widgets/start/bufferline
+	url = https://github.com/akinsho/bufferline.nvim.git
