@@ -37,3 +37,15 @@
 [submodule "pack/widgets/start/nvim-tree"]
 	path = pack/widgets/start/nvim-tree
 	url = https://github.com/nvim-tree/nvim-tree.lua.git
+[submodule "pack/widgets/start/symbols-outline"]
+	path = pack/widgets/start/symbols-outline
+	url = https://github.com/simrat39/symbols-outline.nvim.git
+[submodule "pack/core/start/git-blame"]
+	path = pack/core/start/git-blame
+	url = https://github.com/f-person/git-blame.nvim.git
+[submodule "pack/lsp/start/codeium"]
+	path = pack/lsp/start/codeium
+	url = https://github.com/Exafunction/codeium.nvim.git
+[submodule "pack/common/start/plenary"]
+	path = pack/common/start/plenary
+	url = https://github.com/nvim-lua/plenary.nvim.git
