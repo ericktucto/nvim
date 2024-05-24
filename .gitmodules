@@ -49,3 +49,12 @@
 [submodule "pack/common/start/plenary"]
 	path = pack/common/start/plenary
 	url = https://github.com/nvim-lua/plenary.nvim.git
+[submodule "pack/core/start/nvim-notify"]
+	path = pack/core/start/nvim-notify
+	url = https://github.com/rcarriga/nvim-notify.git
+[submodule "pack/core/start/gitsigns"]
+	path = pack/core/start/gitsigns
+	url = https://github.com/lewis6991/gitsigns.nvim.git
+[submodule "pack/widgets/start/lualine"]
+	path = pack/widgets/start/lualine
+	url = https://github.com/nvim-lualine/lualine.nvim.git
