@@ -36,5 +36,8 @@ cmp.setup({
 
     -- trigger completion menu
     ['<C-Space>'] = cmp.mapping.complete(),
+
+    -- Navigation to next suggestion
+    ['<Tab>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert })
   }),
 })
