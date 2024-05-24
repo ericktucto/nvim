@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 string::check::regex() {
-    checked=$(echo $1 | grep -E "$2")
+    checked=$(echo $1 | grep -P -o "$2")
 
     if [[ -n "$checked" ]]; then
         echo 1
@@ -17,6 +17,6 @@ string::check::url::git() {
 }
 
 string::check::user_repo() {
-    regex='^(.+)/(.+)$'
+    regex='^[a-zA-Z0-9\.\-_]+/[a-zA-Z0-9\.\-_]+$'
     string::check::regex "$1" "$regex"
 }

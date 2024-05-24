@@ -34,3 +34,14 @@ function user_repos() {
     )
     echo "${repos[@]}"
 }
+
+# data_provider urls
+function test_string_is_not_user_repo() {
+    local repo=$1
+    assert_equals 0 "$(string::check::user_repo "$repo")"
+}
+
+function test_string_is_use_url_as_user_repo() {
+    local repo="https://github.com/nvim-treesitter/nvim-treesitter"
+    assert_equals 0 "$(string::check::user_repo "$repo")"
+}

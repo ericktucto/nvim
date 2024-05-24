@@ -58,3 +58,6 @@
 [submodule "pack/widgets/start/lualine"]
 	path = pack/widgets/start/lualine
 	url = https://github.com/nvim-lualine/lualine.nvim.git
+[submodule "pack/core/start/treesitter"]
+	path = pack/core/start/treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter

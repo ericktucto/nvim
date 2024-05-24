@@ -1,23 +1,22 @@
 #!/usr/bin/env bash
 # Maintainer: Erick Tucto <erick@ericktucto.com>
 
-source ./validations/strings.sh
+source ./cli/validations/strings.sh
 
 add() {
     if [[ $# -eq 3 ]]; then
         local url=$1
-        if [[ -n "$(string::check::user_repo "$url")" ]]; then
+        if [[ "$(string::check::user_repo "$url")" == 1 ]]; then
             url=https://github.com/$1.git
         fi
 
         local path=pack/$2/start/$3
 
-        local checked="$(string::check::url::git "$url")"
-        if [[ -n "$checked" ]]; then
-            # git submodule add $url $path
+        if [[ "$(string::check::url::git "$url")" == 1 ]]; then
+            echo "Adding plugin..."
+            git submodule add $url $path
+            exit 1
         fi
-
-        exit 1
     fi
     echo "./nvim.sh add <user/plugin> <category> <name>"
 }
