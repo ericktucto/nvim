@@ -1,33 +1,25 @@
 #!/usr/bin/env bash
 # Maintainer: Erick Tucto <erick@ericktucto.com>
 
-string::check::url::git() {
-    local regex='^(https?|git|ssh|git@)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
-    if [[ $1 =~ $regex ]]; then
-        return 0
-    fi
-    return 1
-}
-string::check::user_repo() {
-    local regex='\w+/\w+'
-    if [[ $1 =~ $regex ]]; then
-        return 0
-    fi
-    return 1
-}
+source ./validations/strings.sh
 
 add() {
     if [[ $# -eq 3 ]]; then
-        local url=https://github.com/$1.git
-        local path=pack/$2/start/$3
-        if [[ string::check::url::git $url ]]; then
-            echo "is url"
+        local url=$1
+        if [[ -n "$(string::check::user_repo "$url")" ]]; then
+            url=https://github.com/$1.git
         fi
-        # git submodule add $url $path
+
+        local path=pack/$2/start/$3
+
+        local checked="$(string::check::url::git "$url")"
+        if [[ -n "$checked" ]]; then
+            # git submodule add $url $path
+        fi
 
         exit 1
     fi
-    echo "./nvim.sh add <user/plugin> <category>"
+    echo "./nvim.sh add <user/plugin> <category> <name>"
 }
 
 saluda() {
