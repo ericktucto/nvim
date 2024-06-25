@@ -61,3 +61,6 @@
 [submodule "pack/core/start/treesitter"]
 	path = pack/core/start/treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter
+[submodule "pack/core/start/indent-blankline"]
+	path = pack/core/start/indent-blankline
+	url = https://github.com/lukas-reineke/indent-blankline.nvim.git
