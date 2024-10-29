@@ -21,6 +21,12 @@ function lsp:top()
   end
 end
 
+local nvimbattery = {
+  function()
+    return require("battery").get_status_line()
+  end,
+}
+
 local default_options = {
   options = {
     component_separators = { left = "", right = "" },
@@ -50,7 +56,8 @@ local default_options = {
       {
         'diff',
       },
-      'branch'
+      'branch',
+      nvimbattery
     },
     lualine_z = {{'location', padding = 1}}
   },

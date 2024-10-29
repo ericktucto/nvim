@@ -1,3 +1,5 @@
+require "stixcode.core.git-conflict"
 require "stixcode.core.git-blame"
 require "stixcode.core.gitsigns"
 require "stixcode.core.indent-blankline"
+require "stixcode.core.marks"

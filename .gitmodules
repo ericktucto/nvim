@@ -64,3 +64,18 @@
 [submodule "pack/core/start/indent-blankline"]
 	path = pack/core/start/indent-blankline
 	url = https://github.com/lukas-reineke/indent-blankline.nvim.git
+[submodule "pack/core/start/marks.nvim"]
+	path = pack/core/start/marks.nvim
+	url = https://github.com/chentoast/marks.nvim.git
+[submodule "pack/language-support/start/twig"]
+	path = pack/language-support/start/twig
+	url = https://github.com/nelsyeung/twig.vim.git
+[submodule "pack/widgets/start/battery"]
+	path = pack/widgets/start/battery
+	url = https://github.com/justinhj/battery.nvim.git
+[submodule "pack/ai/start/copilot.vim"]
+	path = pack/ai/start/copilot.vim
+	url = https://github.com/github/copilot.vim.git
+[submodule "pack/core/start/git-conflict"]
+	path = pack/core/start/git-conflict
+	url = https://github.com/akinsho/git-conflict.nvim.git
