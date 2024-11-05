@@ -1,7 +1,8 @@
 local mapper = require("common.mapper").map
 
 require("gitblame").setup({
-  enabled = false
+  enabled = false,
+  message_template = '  <sha> • <date> • <author>: <summary> ',
 })
 local bindings = {
   { "<Leader>b", ":GitBlameToggle<CR>", desc = "Toggle show git blame" }
