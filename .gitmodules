@@ -79,3 +79,6 @@
 [submodule "pack/core/start/git-conflict"]
 	path = pack/core/start/git-conflict
 	url = https://github.com/akinsho/git-conflict.nvim.git
+[submodule "pack/core/start/nui.nvim"]
+	path = pack/core/start/nui.nvim
+	url = https://github.com/MunifTanjim/nui.nvim.git
