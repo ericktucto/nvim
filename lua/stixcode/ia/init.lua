@@ -1,0 +1,1 @@
+require("stixcode.ia.copilot")

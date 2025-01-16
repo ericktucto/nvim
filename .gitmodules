@@ -1,0 +1,81 @@
+[submodule "pack/lsp/start/lsp-zero"]
+	path = pack/lsp/start/lsp-zero
+	url = https://github.com/VonHeikemen/lsp-zero.nvim.git
+[submodule "pack/lsp/start/mason"]
+	path = pack/lsp/start/mason
+	url = https://github.com/williamboman/mason.nvim.git
+[submodule "pack/lsp/start/mason-lspconfig"]
+	path = pack/lsp/start/mason-lspconfig
+	url = https://github.com/williamboman/mason-lspconfig.nvim.git
+[submodule "pack/lsp/start/nvim-lspconfig"]
+	path = pack/lsp/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig.git
+[submodule "pack/widgets/start/fzf-lua"]
+	path = pack/widgets/start/fzf-lua
+	url = https://github.com/ibhagwan/fzf-lua.git
+[submodule "pack/common/start/web-devicons"]
+	path = pack/common/start/web-devicons
+	url = https://github.com/nvim-tree/nvim-web-devicons.git
+[submodule "pack/lsp/start/nvim-cmp"]
+	path = pack/lsp/start/nvim-cmp
+	url = https://github.com/hrsh7th/nvim-cmp.git
+[submodule "pack/lsp/start/cmp-nvim-lsp"]
+	path = pack/lsp/start/cmp-nvim-lsp
+	url = https://github.com/hrsh7th/cmp-nvim-lsp.git
+[submodule "pack/formatter/start/editorconfig"]
+	path = pack/formatter/start/editorconfig
+	url = https://github.com/gpanders/editorconfig.nvim.git
+[submodule "pack/formatter/start/catppuccin-theme"]
+	path = pack/formatter/start/catppuccin-theme
+	url = https://github.com/catppuccin/nvim.git
+[submodule "pack/widgets/start/bufferline"]
+	path = pack/widgets/start/bufferline
+	url = https://github.com/akinsho/bufferline.nvim.git
+[submodule "pack/widgets/start/nvim-tree"]
+	path = pack/widgets/start/nvim-tree
+	url = https://github.com/nvim-tree/nvim-tree.lua.git
+[submodule "pack/widgets/start/symbols-outline"]
+	path = pack/widgets/start/symbols-outline
+	url = https://github.com/simrat39/symbols-outline.nvim.git
+[submodule "pack/core/start/git-blame"]
+	path = pack/core/start/git-blame
+	url = https://github.com/f-person/git-blame.nvim.git
+[submodule "pack/lsp/start/codeium"]
+	path = pack/lsp/start/codeium
+	url = https://github.com/Exafunction/codeium.nvim.git
+[submodule "pack/common/start/plenary"]
+	path = pack/common/start/plenary
+	url = https://github.com/nvim-lua/plenary.nvim.git
+[submodule "pack/core/start/nvim-notify"]
+	path = pack/core/start/nvim-notify
+	url = https://github.com/rcarriga/nvim-notify.git
+[submodule "pack/core/start/gitsigns"]
+	path = pack/core/start/gitsigns
+	url = https://github.com/lewis6991/gitsigns.nvim.git
+[submodule "pack/widgets/start/lualine"]
+	path = pack/widgets/start/lualine
+	url = https://github.com/nvim-lualine/lualine.nvim.git
+[submodule "pack/core/start/treesitter"]
+	path = pack/core/start/treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter
+[submodule "pack/core/start/indent-blankline"]
+	path = pack/core/start/indent-blankline
+	url = https://github.com/lukas-reineke/indent-blankline.nvim.git
+[submodule "pack/core/start/marks.nvim"]
+	path = pack/core/start/marks.nvim
+	url = https://github.com/chentoast/marks.nvim.git
+[submodule "pack/language-support/start/twig"]
+	path = pack/language-support/start/twig
+	url = https://github.com/nelsyeung/twig.vim.git
+[submodule "pack/widgets/start/battery"]
+	path = pack/widgets/start/battery
+	url = https://github.com/justinhj/battery.nvim.git
+[submodule "pack/ai/start/copilot.vim"]
+	path = pack/ai/start/copilot.vim
+	url = https://github.com/github/copilot.vim.git
+[submodule "pack/core/start/git-conflict"]
+	path = pack/core/start/git-conflict
+	url = https://github.com/akinsho/git-conflict.nvim.git
+[submodule "pack/core/start/nui.nvim"]
+	path = pack/core/start/nui.nvim
+	url = https://github.com/MunifTanjim/nui.nvim.git

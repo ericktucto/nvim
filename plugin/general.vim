@@ -13,5 +13,7 @@ set noshowmode " IMPIDE VER EL MODO POR DEFAULT NEOVIM (INSERT,VISUAL,NORMAL).
 set showmatch
 set list
 set eol
+let g:copilot_proxy = 'http://localhost:11435'
+let g:copilot_proxy_strict_ssl = v:false
 " let mapleader="\<C-h>"
 
