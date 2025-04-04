@@ -79,3 +79,9 @@
 [submodule "pack/core/start/nui.nvim"]
 	path = pack/core/start/nui.nvim
 	url = https://github.com/MunifTanjim/nui.nvim.git
+[submodule "pack/core/start/conform.nvim"]
+	path = pack/core/start/conform.nvim
+	url = https://github.com/stevearc/conform.nvim.git
+[submodule "pack/core/start/nvim-lint"]
+	path = pack/core/start/nvim-lint
+	url = https://github.com/mfussenegger/nvim-lint.git
