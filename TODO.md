@@ -3,3 +3,4 @@
 - [ ] Listar depencias de toda mi configuracion
 - [ ] PHPCS tomarlo del vendor como prioridad, luego debe seguir el global si no existe
 - [ ] Nueva ventana emergente (mensajes de ayuda del lsp)
+- [ ] Agregar la funcion actual del lsp en el status bar, por ejemplo sus estoy en funcion saludar abajo debe estar saludar
