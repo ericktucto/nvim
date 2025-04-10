@@ -9,6 +9,7 @@ local config = {
 local except_projects = {
   "/home/erick/Proyectos/Freelance/bulwarkapi",
   "/home/erick/Proyectos/Freelance/TempestFrontend",
+  "/home/erick/Proyectos/Freelance/TempestFrontend/nodejs-chat",
 }
 -- disable especial projects
 if not vim.tbl_contains(except_projects, vim.fn.getcwd()) then

@@ -1,9 +1,19 @@
 local linter = require("lint")
+
+-- CONFIG PHPCS
+local phpcs_rules = vim.fn.stdpath("config") .. "/lib/phpcs/phpcs.xml"
+local phpcs = require("lint").linters.phpcs
+phpcs.cmd = vim.fn.stdpath("config") .. "/lib/phpcs/vendor/bin/phpcs"
+phpcs.args = { "-q", "--standard=" .. phpcs_rules, "--report=json", "-" }
+
+
 linter.linters_by_ft = {
   php = {
-    "phpstan",
-    "tlint",
+    "phpcs",
     "php"
+  },
+  sh = {
+    "shellcheck",
   }
 }
 

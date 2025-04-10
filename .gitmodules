@@ -85,3 +85,6 @@
 [submodule "pack/core/start/nvim-lint"]
 	path = pack/core/start/nvim-lint
 	url = https://github.com/mfussenegger/nvim-lint.git
+[submodule "pack/others/start/themery.nvim"]
+	path = pack/others/start/themery.nvim
+	url = https://github.com/zaldih/themery.nvim.git
