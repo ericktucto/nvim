@@ -70,9 +70,6 @@
 [submodule "pack/widgets/start/battery"]
 	path = pack/widgets/start/battery
 	url = https://github.com/justinhj/battery.nvim.git
-[submodule "pack/ai/start/copilot.vim"]
-	path = pack/ai/start/copilot.vim
-	url = https://github.com/github/copilot.vim.git
 [submodule "pack/core/start/git-conflict"]
 	path = pack/core/start/git-conflict
 	url = https://github.com/akinsho/git-conflict.nvim.git
