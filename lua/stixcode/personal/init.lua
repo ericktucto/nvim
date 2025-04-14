@@ -11,12 +11,12 @@ local function dump(o, indent)
     local s = '{\n'
     --local s = '{ '
     local spaces = string.rep(' ', indent * 2)
-    for k,v in pairs(o) do
-      if type(k) ~= 'number' then k = '"'..k..'"' end
-      s = s .. spaces .. k ..': ' .. dump(v, indent + 1) .. ',\n'
+    for k, v in pairs(o) do
+      if type(k) ~= 'number' then k = '"' .. k .. '"' end
+      s = s .. spaces .. k .. ': ' .. dump(v, indent + 1) .. ',\n'
       --s = s .. '['..k..'] = ' .. dump(v) .. ','
     end
-    return s .. string.rep(' ', (indent - 1) * 2 ) .. '}'
+    return s .. string.rep(' ', (indent - 1) * 2) .. '}'
   else
     return tostring(o)
   end
@@ -24,7 +24,7 @@ end
 
 --@param lines table
 local function showOnPopup(lines)
-  vim.schedule(function()
+  vim.schedule(function ()
     local Popup = require("nui.popup")
     local event = require("nui.utils.autocmd").event
 
@@ -45,12 +45,13 @@ local function showOnPopup(lines)
     popup:mount()
 
     -- unmount component when cursor leaves buffer
-    popup:on(event.BufLeave, function()
+    popup:on(event.BufLeave, function ()
       popup:unmount()
     end)
 
     -- set content
     vim.api.nvim_buf_set_lines(popup.bufnr, 0, 1, false, lines)
+    vim.bo[popup.bufnr].filetype = "json"
     notifySys("termino peticion")
   end)
 end
@@ -60,7 +61,7 @@ local function parse(json)
   --local result = string.gsub(dump(j, 1), "\{\\n( ){1..}\}", "\{\}")
   local lines = {}
   for s in result:gmatch("[^\r\n]+") do
-      table.insert(lines, s)
+    table.insert(lines, s)
   end
   return lines
 end
@@ -68,7 +69,7 @@ end
 -- @return bool, string
 local function getMessage(json)
   local decoded = ""
-  local _getMessage = function()
+  local _getMessage = function ()
     decoded = vim.json.decode(json)
     return true
   end
@@ -80,27 +81,35 @@ local function getMessage(json)
 end
 
 local function request()
-    notifySys("iniciando peticion")
-    Job:new({
-      command = "bash",
-      args = { "exec.sh" },
-      on_exit = function(j, _)
-        local json = table.concat(j:result(), "")
-        vim.print(vim.inspect(json))
-        local err, message = getMessage(json)
-        if err then
-          return showOnPopup({ message })
-        end
-        local dumped = dump(message, 1)
-        local lines = parse(dumped)
-        showOnPopup(lines)
+  notifySys("iniciando peticion")
+  Job:new({
+    command = "bash",
+    args = { "exec.sh" },
+    on_exit = function (j, _)
+      local json = table.concat(j:result(), "")
+      vim.print(vim.inspect(json))
+      local err, message = getMessage(json)
+      if err then
+        return showOnPopup({ message })
       end
-    }):start()
+      local dumped = dump(message, 1)
+      local lines = parse(dumped)
+      showOnPopup(lines)
+    end
+  }):start()
 end
 
 mapper(
   'n',
   '<Leader>o',
+  function ()
+    pasync.run(request)
+  end
+)
+
+mapper(
+  'n',
+  '<Leader>m',
   function ()
     pasync.run(request)
   end

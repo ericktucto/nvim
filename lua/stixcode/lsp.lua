@@ -17,6 +17,22 @@ require("mason-lspconfig").setup({
         options = defaultOptions[server_name]
       end
 
+      --[[
+      if server_name == "phpactor" then
+        -- CONFIG PHPCS
+        local phpcs_rules = vim.fn.stdpath("config") .. "/lib/phpcs/phpcs.xml"
+        local phpcs_path = vim.fn.stdpath("config") .. "/lib/phpcs/vendor/bin/phpcs"
+        --phpcs.args = { "-q", "--standard=" .. phpcs_rules, "--report=json", "-" }
+        options = {
+          init_options = {
+            ["php_code_sniffer.enabled"] = true,
+            ["php_code_sniffer.bin"] = phpcs_path,
+            ["php_code_sniffer.args"] = { "--standard=" .. phpcs_rules },
+          }
+        }
+      end
+      ]]
+
       require("lspconfig")[server_name].setup(options)
     end
   }
