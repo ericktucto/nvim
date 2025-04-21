@@ -1,6 +1,6 @@
 local M = {}
 
-M.exists = function(path)
+M.exists = function (path)
   local f = io.open(path, "r")
   if f ~= nil then
     io.close(f)
@@ -8,7 +8,7 @@ M.exists = function(path)
   end
   return false
 end
-M.read = function(path)
+M.read = function (path)
   local f = io.open(path, "r")
   if f ~= nil then
     local content = f:read("*a")

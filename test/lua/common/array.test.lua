@@ -1,0 +1,13 @@
+local array = require("common.array")
+
+describe("Testing to common functions", function ()
+  it("isArray", function ()
+    assert.is_true(array.isArray({ 1, 2, 3 }))
+    assert.is_true(array.isArray({ { name = "erick" }, { name = "stix" } }))
+    assert.is_false(array.isArray({ name = "erick" }))
+  end)
+  it("len", function ()
+    assert.equals(3, array.len({ 1, 2, 3 }))
+    assert.equals(2, array.len({ name = "erick", github = "@ericktucto" }))
+  end)
+end)
