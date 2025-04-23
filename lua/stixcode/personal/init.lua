@@ -2,14 +2,7 @@ local personal = require("stixcode.personal.parser")
 local pasync = require("plenary.async")
 local Job = require("plenary.job")
 local mapper = require("common.mapper").map
-local notify = require("notify").instance({
-  timeout = 120,
-  render = "minimal",
-})
-
-local function notifySys(msg)
-  io.popen("notify-send -i dialog-information '" .. msg .. "'")
-end
+local notify = require("stixcode.personal.notify")
 
 local function dump(o, indent)
   if type(o) == 'table' then
@@ -57,8 +50,7 @@ local function showOnPopup(lines)
     -- set content
     vim.api.nvim_buf_set_lines(popup.bufnr, 0, 1, false, lines)
     vim.bo[popup.bufnr].filetype = "json"
-    notify("Termino el script", "info")
-    --notifySys("termino peticion")
+    notify.simple("Termino el script")
   end)
 end
 
@@ -87,8 +79,7 @@ local function getMessage(json)
 end
 
 local function request()
-  --notifySys("iniciando peticion")
-  notify("Ejecutando script", "info")
+  notify.simple("Ejecutando script")
   Job:new({
     command = "bash",
     args = { "exec.sh" },
