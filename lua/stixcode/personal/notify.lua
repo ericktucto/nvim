@@ -1,12 +1,11 @@
-local sys = require("common.system")
+local notify = require("notify").instance({
+  timeout = 120,
+  render = "minimal",
+})
 local M = {}
 
 function M.simple(message)
-  if sys.get_display_server() == "unknown" then
-    local notify = require("notify").instance({
-      timeout = 120,
-      render = "minimal",
-    })
+  if vim.g.display_server == "unknown" then
     notify(message, "info")
     return true
   end
