@@ -17,14 +17,31 @@ require("mason-lspconfig").setup({
         options = defaultOptions[server_name]
       end
 
+      options.capabilities = require("cmp_nvim_lsp").default_capabilities()
+
       if server_name == "tsserver" then
         server_name = "ts_ls"
       end
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      require("lspconfig")[server_name].setup({
-        capabilities = capabilities,
-      })
 
+      if server_name == "lua_ls" then
+        options.settings = {
+          Lua = {
+            runtime = {
+              version = 'LuaJIT',
+            },
+            diagnostics = {
+              globals = { 'vim' },
+            },
+            workspace = {
+              checkThirdParty = false,
+              library = vim.api.nvim_get_runtime_file("", true),
+            },
+            telemetry = {
+              enable = false,
+            },
+          },
+        }
+      end
       --[[
       if server_name == "phpactor" then
         -- CONFIG PHPCS

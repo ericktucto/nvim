@@ -22,7 +22,7 @@ function lsp:top()
 end
 
 local nvimbattery = {
-  function()
+  function ()
     return require("battery").get_status_line()
   end,
 }
@@ -33,9 +33,9 @@ local default_options = {
     section_separators = { left = "|", right = "|" }
   },
   sections = {
-    lualine_a = {'mode'},
+    lualine_a = { 'mode' },
     lualine_b = {
-      {'filename', path = 1, symbols = { modified = ' ', readonly = ' ' } },
+      { 'filename', path = 1, symbols = { modified = ' ', readonly = ' ' } },
     },
     lualine_c = {
       {
@@ -44,28 +44,29 @@ local default_options = {
         --   'nvim_lsp', 'nvim_diagnostic', 'nvim_workspace_diagnostic', 'coc', 'ale', 'vim_lsp'.
         sources = { 'nvim_lsp' },
         sections = { 'error', 'warn', 'info', 'hint' },
-        symbols = {error = ' ', warn = ' ', info = ' ', hint = '󰌵 '},
+        symbols = { error = ' ', warn = ' ', info = ' ', hint = '󰌵 ' },
         colored = true,
         update_in_insert = true,
-        always_visible = false,   -- Show diagnostics even if there are none.
+        always_visible = false, -- Show diagnostics even if there are none.
       },
-        -- {'NearestMethodOrFunction'}
+      -- {'NearestMethodOrFunction'}
     },
     lualine_x = {},
     lualine_y = {
+      'lsp_progress',
       {
         'diff',
       },
       'branch',
       nvimbattery
     },
-    lualine_z = {{'location', padding = 1}}
+    lualine_z = { { 'location', padding = 1 } }
   },
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
+    lualine_c = { 'filename' },
+    lualine_x = { 'location' },
     lualine_y = {},
     lualine_z = {}
   }
@@ -133,7 +134,7 @@ local opts = function (_, opts)
 
     if diagnostic == nil then return "" end
 
-    local icons = { ' ', ' ', ' ', '󰌵 '}
+    local icons = { ' ', ' ', ' ', '󰌵 ' }
     local hl = {
       self.highlights.error,
       self.highlights.warn,
@@ -141,9 +142,9 @@ local opts = function (_, opts)
       self.highlights.hint,
     }
     return highlight.component_format_highlight(hl[diagnostic.severity])
-      .. icons[diagnostic.severity]
-      .. " "
-      .. utils.stl_escape(diagnostic.message)
+        .. icons[diagnostic.severity]
+        .. " "
+        .. utils.stl_escape(diagnostic.message)
   end
 
   table.insert(opts.sections.lualine_c, {

@@ -18,4 +18,15 @@ M.read = function (path)
   return nil
 end
 
+M.relative_path = function (buffer)
+  local workspace = vim.fn.getcwd() .. "/"
+  local path_full = vim.api.nvim_buf_get_name(buffer)
+
+  if path_full:sub(1, #workspace) == workspace then
+    return path_full:sub(#workspace + 1)
+  end
+
+  return nil
+end
+
 return M
