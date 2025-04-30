@@ -86,14 +86,12 @@ local default_options = {
       end
     },
     lualine_y = {
-      'lsp_progress',
       {
         'diff',
       },
-      'branch',
       nvimbattery
     },
-    lualine_z = { { 'location', padding = 1 } }
+    lualine_z = { 'branch' }
   },
   inactive_sections = {
     lualine_a = {},
