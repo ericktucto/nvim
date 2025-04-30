@@ -1,3 +1,32 @@
+local api = require("lsp-progress.api")
+require("lsp-progress").setup(
+  require("lsp-progress.defaults").setup({
+    format = function (client_messages)
+      -- icon: nf-fa-gear \uf013
+      local sign = " LSP"
+      if #client_messages > 0 then
+        return sign .. " " .. table.concat(client_messages, " ")
+      end
+      if #api.lsp_clients() > 0 then
+        local clients = vim.lsp.get_clients({
+          bufnr = vim.api.nvim_get_current_buf(),
+        })
+        local names = {}
+        for _, client in ipairs(clients) do
+          if client.name == "null-ls" then
+            return ""
+          end
+          table.insert(names, client.name)
+        end
+        if vim.tbl_count(names) > 0 then
+          return " " .. table.concat(names, ", ")
+        end
+        return sign
+      end
+      return ""
+    end,
+  })
+)
 local lsp = {}
 
 function lsp:all()
@@ -51,7 +80,11 @@ local default_options = {
       },
       -- {'NearestMethodOrFunction'}
     },
-    lualine_x = {},
+    lualine_x = {
+      function ()
+        return require("lsp-progress").progress()
+      end
+    },
     lualine_y = {
       'lsp_progress',
       {
