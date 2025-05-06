@@ -1,3 +1,4 @@
+require "stixcode.core.mason"
 require "stixcode.core.git-conflict"
 require "stixcode.core.git-blame"
 require "stixcode.core.gitsigns"
