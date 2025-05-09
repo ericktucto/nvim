@@ -73,3 +73,12 @@
 [submodule "pack/others/start/themery.nvim"]
 	path = pack/others/start/themery.nvim
 	url = https://github.com/zaldih/themery.nvim.git
+[submodule "pack/widgets/start/lsp-progress.nvim"]
+	path = pack/widgets/start/lsp-progress.nvim
+	url = https://github.com/linrongbin16/lsp-progress.nvim.git
+[submodule "pack/core/start/nvim-treesitter-textobjects"]
+	path = pack/core/start/nvim-treesitter-textobjects
+	url = https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git
+[submodule "pack/common/start/snacks.nvim"]
+	path = pack/common/start/snacks.nvim
+	url = https://github.com/folke/snacks.nvim.git
