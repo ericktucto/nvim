@@ -1,3 +1,6 @@
+# experimental config
+/pack/experimental/
+/lua/stixcode/experimental/
 # Compiled Lua sources
 luac.out
 
