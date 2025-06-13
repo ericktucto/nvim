@@ -21,7 +21,7 @@ end
 mapper('', '<c-p>', function () fzf.files({ resume = true }) end)
 
 -- Searching on stage (git)
-mapper("", "<Leader>s", function () fzf.git_status({}) end)
+mapper("", "<Leader>sg", function () fzf.git_status({}) end)
 
 -- Searching changes on current file
 mapper("", "<Leader>S", fzf_fn.list_hunks)

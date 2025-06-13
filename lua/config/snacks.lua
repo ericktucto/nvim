@@ -7,6 +7,7 @@ snacks.setup({
   },
 })
 local keys = {
+  { "<leader>sf", function () snacks.picker.grep() end,                  desc = "Search files" },
   { "<leader>gd", function () snacks.picker.git_diff() end,              desc = "Git Diff (Hunks)" },
   { "gd",         function () snacks.picker.lsp_definitions() end,       desc = "Goto Definition" },
   { "gD",         function () snacks.picker.lsp_declarations() end,      desc = "Goto Declaration" },
