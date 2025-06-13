@@ -28,9 +28,6 @@
 [submodule "pack/core/start/git-blame"]
 	path = pack/core/start/git-blame
 	url = https://github.com/f-person/git-blame.nvim.git
-[submodule "pack/lsp/start/codeium"]
-	path = pack/lsp/start/codeium
-	url = https://github.com/Exafunction/codeium.nvim.git
 [submodule "pack/common/start/plenary"]
 	path = pack/common/start/plenary
 	url = https://github.com/nvim-lua/plenary.nvim.git
@@ -82,3 +79,6 @@
 [submodule "pack/common/start/snacks.nvim"]
 	path = pack/common/start/snacks.nvim
 	url = https://github.com/folke/snacks.nvim.git
+[submodule "pack/ai/start/windsurf"]
+	path = pack/ai/start/windsurf
+	url = https://github.com/Exafunction/windsurf.nvim.git

@@ -1,3 +1,4 @@
+local info_file = require("stixcode.widgets.lualine.components.info_file")
 return {
   a = { 'mode' },
   b = {
@@ -15,5 +16,6 @@ return {
     },
   },
   c = {
+    info_file,
   },
 }
