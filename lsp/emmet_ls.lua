@@ -2,6 +2,7 @@ return {
   cmd = { 'emmet-ls', '--stdio' },
   filetypes = {
     'html',
+    'htmldjango',
     'css',
     'javascript',
     'javascriptreact',
@@ -9,7 +10,7 @@ return {
     'typescriptreact',
     'css',
     'ruby',
-    'html',
+    'markdown',
     'javascript',
     'javascriptreact',
     'less',

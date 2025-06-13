@@ -35,6 +35,9 @@ vim.lsp.enable("bashls")
 vim.lsp.enable("ts_ls")
 vim.lsp.enable("volar")
 vim.lsp.enable("emmet_ls")
+vim.lsp.enable("somesass_ls")
+vim.lsp.enable("solargraph")
+vim.lsp.enable("pyright")
 
 vim.api.nvim_create_autocmd({ "CursorHold" }, {
   pattern = "*",
