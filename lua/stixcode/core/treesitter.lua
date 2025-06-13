@@ -3,13 +3,19 @@ require("nvim-treesitter.configs").setup({
   sync_install = false,
   auto_install = false,
   ignore_install = {},
-  parser_install_dir = vim.fn.stdpath("data") .. "/treesitter",
+  highlight = {
+    enable = true,
+  },
+  indent = {
+    enable = true,
+  },
   ensure_installed = {
     "lua",
     "luadoc",
     "json",
     "php",
     "vue",
+    "typescript",
     "javascript",
     "html",
   },
