@@ -33,7 +33,7 @@ vim.lsp.enable("lua_ls")
 vim.lsp.enable("phpactor")
 vim.lsp.enable("bashls")
 vim.lsp.enable("ts_ls")
-vim.lsp.enable("volar")
+vim.lsp.enable({ "vtsls", "vue_ls" })
 vim.lsp.enable("emmet_ls")
 vim.lsp.enable("somesass_ls")
 vim.lsp.enable("solargraph")
@@ -60,6 +60,34 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
     })
   end
 })
+vim.api.nvim_create_user_command('LspLog', function ()
+  local p = vim.lsp.get_log_path()
+  vim.cmd('tabnew ' .. p)
+end, { desc = "Open LSP log file" })
+-- Reiniciar LSP nativo
+vim.api.nvim_create_user_command('LspRestart', function ()
+  local bufnr = vim.api.nvim_get_current_buf()
+  vim.lsp.stop_client(vim.lsp.get_clients({ bufnr = bufnr }), true)
+  vim.cmd.write()  -- guarda buffers con cambios pendientes
+  vim.defer_fn(function ()
+    vim.cmd.edit() -- recarga el buffer para reactivar LSP
+  end, 500)
+end, { desc = "Restart LSP clients on current buffer" })
+vim.api.nvim_create_user_command('LspInfo', function ()
+  vim.cmd('checkhealth vim.lsp')
+end, { desc = "Show LSP health info (alias for :checkhealth vim.lsp)" })
+vim.api.nvim_create_user_command('LspList', function ()
+  local clients = vim.lsp.get_clients()
+  if vim.tbl_isempty(clients) then
+    print("🔍 LSP Info: No active language servers")
+    return
+  end
+  print("🔍 LSP Info: Active language servers:")
+  for _, client in ipairs(clients) do
+    print(string.format(" • %s (id=%d)", client.name, client.id))
+  end
+end, { desc = "Show active LSP clients" })
+
 -- disable diagnostic inline
 vim.diagnostic.config {
   virtual_text = false,
