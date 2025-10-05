@@ -82,3 +82,9 @@
 [submodule "pack/ai/start/windsurf"]
 	path = pack/ai/start/windsurf
 	url = https://github.com/Exafunction/windsurf.nvim.git
+[submodule "pack/ai/start/cmp-ai"]
+	path = pack/ai/start/cmp-ai
+	url = https://github.com/tzachar/cmp-ai.git
+[submodule "pack/lsp/start/lspkind"]
+	path = pack/lsp/start/lspkind
+	url = https://github.com/onsails/lspkind.nvim.git

@@ -2,14 +2,17 @@ local mapper = require("common.mapper").map
 
 local config = {
   formatters_by_ft = {
+    vue = { "prettier" },
     php = { "php_cs_fixer" },
   },
 }
 
 local except_projects = {
-  "/home/erick/Proyectos/Freelance/bulwarkapi",
-  "/home/erick/Proyectos/Freelance/TempestFrontend",
-  "/home/erick/Proyectos/Freelance/TempestFrontend/nodejs-chat",
+  "/home/erick/Novasoft/Tempest/bulwarkapi",
+  "/home/erick/Novasoft/Tempest/TempestFrontend",
+  "/home/erick/Novasoft/Tempest/NodeJsForTempest",
+  "/home/erick/Novasoft/Tempest/TempestV4",
+  "/home/erick/Novasoft/Tempest/TempestFrontend/nodejs-chat",
 }
 -- disable especial projects
 if not vim.tbl_contains(except_projects, vim.fn.getcwd()) then

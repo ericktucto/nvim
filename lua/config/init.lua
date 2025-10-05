@@ -1,3 +1,4 @@
+require "stixcode.personal.env"
 require "config.options"
 require "config.aesthetic"
 require "stixcode"
