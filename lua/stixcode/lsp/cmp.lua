@@ -1,10 +1,10 @@
+--local project_path = vim.fn.getcwd()
 local cmp = require("cmp")
 require("codeium").setup()
 cmp.setup({
   sources = {
     { name = "nvim_lsp" },
     { name = "codeium" },
-    { name = 'cmp_ai' },
   },
   formatting = {
     format = require("lspkind").cmp_format({
@@ -35,17 +35,6 @@ cmp.setup({
     -- trigger completion menu
     ['<C-Space>'] = cmp.mapping.complete(),
 
-    ['<C-g>'] = cmp.mapping(
-      cmp.mapping.complete({
-        config = {
-          sources = cmp.config.sources({
-            { name = 'cmp_ai' },
-          })
-        }
-      }),
-      { 'i' }
-    ),
-
     -- Navigation to next suggestion
     ['<Tab>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
   }),
@@ -55,7 +44,11 @@ vim.lsp.config("*", {
 })
 
 vim.lsp.enable("lua_ls")
+--if vim.fn.exists(project_path .. '/psalm.xml') == 0 then
+--  vim.lsp.enable("phpstan")
+--end
 vim.lsp.enable("phpactor")
+vim.lsp.enable("psalm")
 vim.lsp.enable("bashls")
 --vim.lsp.enable("ts_ls")
 vim.lsp.enable({ "vtsls", "vue_ls" })
@@ -63,6 +56,7 @@ vim.lsp.enable("emmet_ls")
 vim.lsp.enable("somesass_ls")
 vim.lsp.enable("solargraph")
 vim.lsp.enable("pyright")
+vim.lsp.enable("dartls")
 
 -- COMANDS TO LSP
 vim.api.nvim_create_user_command('LspLog', function ()

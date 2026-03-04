@@ -1,13 +1,20 @@
+local project_path = vim.fn.getcwd()
 local linter = require("lint")
-require("stixcode.core.linter.phpstan")
-require("stixcode.core.linter.phpcs")
+
+local php_config = { 'php' }
+
+if
+    vim.fn.executable(project_path .. '/vendor/bin/psalm') == 0 and
+    vim.fn.executable(project_path .. '/vendor/bin/psalm.xml') == 0
+then
+  --require("stixcode.core.linter.phpstan")
+  require("stixcode.core.linter.phpcs")
+  --table.insert(php_config, 'phpstan')
+  table.insert(php_config, 'phpcs')
+end
 
 linter.linters_by_ft = {
-  php = {
-    --"phpstan",
-    "phpcs",
-    "php"
-  },
+  php = php_config,
   sh = {
     "shellcheck",
   }

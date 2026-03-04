@@ -21,8 +21,12 @@ vim.cmd([[
   tnoremap <C-n> <C-\><C-n>
 ]])
 
--- RUN TESTING MY CONFIG NEEOVIM USING PLENARY
+-- RUN TESTING MY CONFIG NEOVIM USING PLENARY OR TESTING USING NEOTEST ON MY PROJECTS
 local function run_test()
+  if vim.bo.filetype == 'php' then
+    require("neotest").run.run(vim.fn.expand("%"))
+    return
+  end
   local full_path = vim.fn.expand("%:p")
   local content_file = vim.fn.readfile(full_path)
   local tempfile = vim.fn.tempname()
@@ -32,18 +36,12 @@ local function run_test()
 end
 map("n", "<Leader>t", run_test)
 
--- LSP
---[[
-mapper('n', 'K', '<cmd>lua vim.lsp.buf.hover({border = vim.g.lsp_zero_border_style})<cr>', 'Hover documentation')
-mapper('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help({border = vim.g.lsp_zero_border_style})<cr>',
-  'Show function signature')
-mapper('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', 'Go to definition')
-mapper('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', 'Go to declaration')
-mapper('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', 'Go to implementation')
-mapper('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', 'Go to type definition')
-mapper('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', 'Go to reference')
-mapper('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', 'Rename symbol')
-mapper('n', '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', 'Format file')
-mapper('x', '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', 'Format selection')
-mapper('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', 'Execute code action')
-]]
+-- TESTING USING NEOTEST ON MY PROJECTS
+-- @todo terminate function
+local function run_all_test()
+  if vim.bo.filetype == 'php' then
+    require("neotest").run.run(vim.fn.expand("%"))
+    return
+  end
+end
+map("n", "<Leader>T", run_all_test)

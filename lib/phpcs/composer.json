@@ -1,5 +1,13 @@
 {
     "require-dev": {
         "sirbrillig/phpcs-variable-analysis": "^2.12"
+    },
+    "require": {
+        "slevomat/coding-standard": "^8.27"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     }
 }

@@ -1,0 +1,1 @@
+require "stixcode.support.flutter"

@@ -1,4 +1,5 @@
 local mapper = require("common.mapper").map
+local personalConfig = require("stixcode.personal.config")
 
 local config = {
   formatters_by_ft = {
@@ -7,15 +8,8 @@ local config = {
   },
 }
 
-local except_projects = {
-  "/home/erick/Novasoft/Tempest/bulwarkapi",
-  "/home/erick/Novasoft/Tempest/TempestFrontend",
-  "/home/erick/Novasoft/Tempest/NodeJsForTempest",
-  "/home/erick/Novasoft/Tempest/TempestV4",
-  "/home/erick/Novasoft/Tempest/TempestFrontend/nodejs-chat",
-}
 -- disable especial projects
-if not vim.tbl_contains(except_projects, vim.fn.getcwd()) then
+if not vim.tbl_contains(personalConfig.except_projects, vim.fn.getcwd()) then
   config.format_on_save = {
     timeout_ms = 500,
     lsp_format = "fallback",

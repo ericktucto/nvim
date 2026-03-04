@@ -11,11 +11,12 @@
     <exclude-pattern>/node_modules/*</exclude-pattern>
 
     <!-- wpcs installed path -->
-    <config name="installed_paths" value="~/.config/nvim/lib/phpcs/vendor/sirbrillig/phpcs-variable-analysis/VariableAnalysis" />
+    <config name="installed_paths" value="~/.config/nvim/lib/phpcs/vendor/sirbrillig/phpcs-variable-analysis/VariableAnalysis,~/.config/nvim/lib/phpcs/vendor/slevomat/coding-standard/SlevomatCodingStandard" />
 
     <!-- Just check php files -->
     <arg name="extensions" value="php"/>
 
     <rule ref="PSR12"/>
     <rule ref="VariableAnalysis"/>
+    <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses"/>
 </ruleset>

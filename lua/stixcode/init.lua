@@ -1,4 +1,5 @@
 require "stixcode.core"
-require "stixcode.ia"
+--require "stixcode.ia"
 require "stixcode.widgets"
 require "stixcode.experimental"
+require "stixcode.support"
