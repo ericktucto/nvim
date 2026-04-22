@@ -7,9 +7,6 @@
 [submodule "pack/common/start/web-devicons"]
 	path = pack/common/start/web-devicons
 	url = https://github.com/nvim-tree/nvim-web-devicons.git
-[submodule "pack/lsp/start/cmp-nvim-lsp"]
-	path = pack/lsp/start/cmp-nvim-lsp
-	url = https://github.com/hrsh7th/cmp-nvim-lsp.git
 [submodule "pack/formatter/start/editorconfig"]
 	path = pack/formatter/start/editorconfig
 	url = https://github.com/gpanders/editorconfig.nvim.git
@@ -73,9 +70,6 @@
 [submodule "pack/ai/start/windsurf"]
 	path = pack/ai/start/windsurf
 	url = https://github.com/Exafunction/windsurf.nvim.git
-[submodule "pack/ai/start/cmp-ai"]
-	path = pack/ai/start/cmp-ai
-	url = https://github.com/tzachar/cmp-ai.git
 [submodule "pack/lsp/start/lspkind"]
 	path = pack/lsp/start/lspkind
 	url = https://github.com/onsails/lspkind.nvim.git
