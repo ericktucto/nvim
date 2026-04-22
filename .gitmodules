@@ -7,9 +7,6 @@
 [submodule "pack/common/start/web-devicons"]
 	path = pack/common/start/web-devicons
 	url = https://github.com/nvim-tree/nvim-web-devicons.git
-[submodule "pack/lsp/start/nvim-cmp"]
-	path = pack/lsp/start/nvim-cmp
-	url = https://github.com/hrsh7th/nvim-cmp.git
 [submodule "pack/lsp/start/cmp-nvim-lsp"]
 	path = pack/lsp/start/cmp-nvim-lsp
 	url = https://github.com/hrsh7th/cmp-nvim-lsp.git
