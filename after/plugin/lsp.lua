@@ -1,4 +1,4 @@
-require "stixcode.lsp.cmp"
+require "stixcode.lsp.blink"
 
 vim.api.nvim_create_autocmd({ "CursorHold" }, {
   pattern = "*",
@@ -28,3 +28,4 @@ vim.diagnostic.config {
   signs = true,
   underline = true,
 }
+--require "stixcode.ia"

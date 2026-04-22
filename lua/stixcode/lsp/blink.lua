@@ -1,4 +1,5 @@
 require("codeium").setup({
+  enable_cmp_source = false,
   virtual_text = {
     enabled = true
   },
@@ -47,7 +48,6 @@ vim.lsp.config("*", {
 })
 
 -- ACTIVATION LSP
-vim.lsp.enable("phpactor")
 vim.lsp.enable("lua_ls")
 --if vim.fn.exists(vim.fn.getcwd() .. '/psalm.xml') == 0 then
 --  vim.lsp.enable("phpstan")
