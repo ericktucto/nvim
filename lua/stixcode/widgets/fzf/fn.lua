@@ -1,4 +1,3 @@
-local async = require("gitsigns.async")
 local git = require("common.git")
 local fs = require("common.fs")
 local fzf = require("fzf-lua")
@@ -6,8 +5,11 @@ local GitHunkPreviewer = require("stixcode.widgets.fzf.previewers").GitHunk
 
 local M = {}
 
-M.list_hunks = async.async(function ()
-  local hunks = async.await(git.get_hunks())
+M.list_hunks = function ()
+  local hunks = git.get_hunks()
+  if hunks == nil then
+    return
+  end
   GitHunkPreviewer:set_hunks(hunks)
   local bufnr = vim.api.nvim_get_current_buf()
   local path = fs.relative_path(bufnr)
@@ -30,16 +32,19 @@ M.list_hunks = async.async(function ()
     actions = {
       ['default'] = function (items)
         local item = items[1]
-        local _, line, key = item:match("([^:]+):(%d+)@(%d+)")
-        line = tonumber(line)
+        local _, _, key = item:match("([^:]+):(%d+)@(%d+)")
         key = tonumber(key)
-        local hunk = hunks[key]
-        if hunk.added.count > 0 then
-          line = 1 + line - hunk.added.count
+        if key == nil or hunks[key] == nil then
+          return
+        end
+
+        local line = hunks[key].added.start
+        if line == 0 then
+          line = 1
         end
         vim.api.nvim_win_set_cursor(0, { line, 0 })
       end
     }
   })
-end)
+end
 return M

@@ -8,7 +8,7 @@ local M = {}
 --- @param bufnr integer
 --- @param target 'unstaged'|'staged'|'all'
 --- @param greedy boolean
---- @return Gitsigns.Hunk.Hunk
+--- @return Gitsigns.Hunk.Hunk[]
 function M.get_nav_hunks(bufnr, target, greedy)
   local bcache = assert(cache[bufnr])
   local hunks_main = bcache:get_hunks(greedy, false) or {}
@@ -32,8 +32,11 @@ function M.get_nav_hunks(bufnr, target, greedy)
   return hunks
 end
 
-M.get_hunks = async.async(function ()
-  return M.get_nav_hunks(vim.api.nvim_get_current_buf(), 'all', true)
-end)
+--- @return Gitsigns.Hunk.Hunk[]?
+M.get_hunks = function ()
+  return async.run(function ()
+    return M.get_nav_hunks(vim.api.nvim_get_current_buf(), 'all', true)
+  end):wait()
+end
 
 return M

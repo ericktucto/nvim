@@ -53,7 +53,7 @@ vim.lsp.enable("lua_ls")
 --  vim.lsp.enable("phpstan")
 --end
 vim.lsp.enable("phpactor")
-vim.lsp.enable("psalm")
+--vim.lsp.enable("psalm")
 vim.lsp.enable("bashls")
 --vim.lsp.enable("ts_ls")
 vim.lsp.enable({ "vtsls", "vue_ls" })
@@ -65,19 +65,9 @@ vim.lsp.enable("dartls")
 
 -- COMANDS TO LSP
 vim.api.nvim_create_user_command('LspLog', function ()
-  local p = vim.lsp.get_log_path()
+  local p = vim.lsp.log.get_filename()
   vim.cmd('tabnew ' .. p)
 end, { desc = "Open LSP log file" })
-
--- RESTART NATIVE LSP
-vim.api.nvim_create_user_command('LspRestart', function ()
-  local bufnr = vim.api.nvim_get_current_buf()
-  vim.lsp.stop_client(vim.lsp.get_clients({ bufnr = bufnr }), true)
-  vim.cmd.write()  -- guarda buffers con cambios pendientes
-  vim.defer_fn(function ()
-    vim.cmd.edit() -- recarga el buffer para reactivar LSP
-  end, 500)
-end, { desc = "Restart LSP clients on current buffer" })
 
 vim.api.nvim_create_user_command('LspInfo', function ()
   vim.cmd('checkhealth vim.lsp')
