@@ -16,11 +16,11 @@ end
 
 vim.o.wildignore = wildignore
 
-vim.o.autoindent =  true
-vim.bo.autoindent =  true
+vim.o.autoindent = true
+vim.bo.autoindent = true
 
-vim.o.expandtab =  true
-vim.bo.expandtab =  true
+vim.o.expandtab = true
+vim.bo.expandtab = true
 
 vim.o.shiftwidth = 4
 vim.bo.shiftwidth = 4
@@ -45,7 +45,7 @@ vim.cmd([[ let mapleader = "\<C-h>" ]])
 
 vim.opt.list = true
 vim.opt.listchars = { trail = '·', eol = '↴', nbsp = '%', tab = '> ' }
-vim.g.python3_host_prog='/usr/bin/python3'
+vim.g.python3_host_prog = '/usr/bin/python3'
 vim.g.loaded_perl_provider = 0
 
 vim.opt.listchars["extends"] = "eol:↴"

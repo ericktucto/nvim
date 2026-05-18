@@ -7,9 +7,6 @@
 [submodule "pack/common/start/web-devicons"]
 	path = pack/common/start/web-devicons
 	url = https://github.com/nvim-tree/nvim-web-devicons.git
-[submodule "pack/formatter/start/editorconfig"]
-	path = pack/formatter/start/editorconfig
-	url = https://github.com/gpanders/editorconfig.nvim.git
 [submodule "pack/formatter/start/catppuccin-theme"]
 	path = pack/formatter/start/catppuccin-theme
 	url = https://github.com/catppuccin/nvim.git
