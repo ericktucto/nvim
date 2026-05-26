@@ -27,3 +27,5 @@ vim.api.nvim_create_autocmd("VimLeave", {
   pattern = "*",
   callback = resetHi,
 })
+require('config.blink-styles').setup()
+require('tree-sitter-manager').setup()

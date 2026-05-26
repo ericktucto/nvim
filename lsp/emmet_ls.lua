@@ -19,7 +19,6 @@ return {
     'svelte',
     'pug',
     'typescriptreact',
-    'vue',
     'html.twig.js.css',
   },
   root_markers = { '.git' },

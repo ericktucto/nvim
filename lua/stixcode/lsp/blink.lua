@@ -1,12 +1,14 @@
 require("codeium").setup({
   enable_cmp_source = false,
   virtual_text = {
-    enabled = true
+    enabled = false
   },
   default_filetype_enabled = true,
 })
 
-require('blink.cmp').setup({
+local lspkind = require('lspkind')
+local cmp = require('blink.cmp')
+cmp.setup({
   keymap = {
     preset = 'default',
     ["<CR>"] = { "accept", "fallback" },
@@ -18,6 +20,68 @@ require('blink.cmp').setup({
   },
 
   completion = {
+    menu = {
+      border = "single",
+      draw = {
+        cursorline_priority = 1000,
+        columns = {
+          { "kind_icon", gap = 1 },
+          { "label",     gap = 1 },
+          { "kind" },
+        },
+        components = {
+          kind_icon = {
+            text = function (ctx)
+              local icon = lspkind.symbol_map[ctx.kind] or ctx.kind_icon or ""
+
+              if ctx.source_name == "codeium" or ctx.source_name == "Codeium" then
+                icon = ""
+              end
+
+              if ctx.kind == "Emmet"
+                  or ctx.source_name == "emmet"
+                  or ctx.source_name == "Emmet"
+                  or (
+                    ctx.item
+                    and ctx.item.client_name == "vue_ls"
+                    and ctx.item.detail == "Emmet Abbreviation"
+                  )
+              then
+                icon = ""
+              end
+
+              return icon
+            end,
+            highlight = function (ctx)
+              return {
+                {
+                  group = "BlinkCmpKind" .. ctx.kind,
+                  priority = 20000,
+                },
+              }
+            end,
+          },
+          label = {
+            text = function (ctx)
+              return ctx.item.label
+            end,
+            highlight = "BlinkCmpLabel"
+          },
+          kind = {
+            text = function (ctx)
+              local kind = ctx.kind or ""
+
+              if ctx.source_name == "codeium" or ctx.source_name == "Codeium" then
+                kind = "Codeium"
+              end
+
+              return "(" .. kind .. ") " .. ctx.source_name
+            end,
+            highlight = "BlinkCmpKindText"
+          }
+        },
+      },
+    },
     documentation = {
       auto_show = true,
       auto_show_delay_ms = 200,
@@ -36,7 +100,7 @@ require('blink.cmp').setup({
   sources = {
     default = { 'lsp', 'path', 'snippets', 'buffer', 'codeium' },
     providers = {
-      codeium = { name = "Codeium", module = "codeium.blink", async = true }, │
+      codeium = { name = "Codeium", module = "codeium.blink", async = true },
     },
   },
   fuzzy = {
@@ -52,8 +116,8 @@ vim.lsp.enable("lua_ls")
 --if vim.fn.exists(vim.fn.getcwd() .. '/psalm.xml') == 0 then
 --  vim.lsp.enable("phpstan")
 --end
-vim.lsp.enable("phpactor")
---vim.lsp.enable("psalm")
+--vim.lsp.enable("phpactor")
+vim.lsp.enable("phpantom")
 vim.lsp.enable("bashls")
 --vim.lsp.enable("ts_ls")
 vim.lsp.enable({ "vtsls", "vue_ls" })
@@ -62,6 +126,7 @@ vim.lsp.enable("somesass_ls")
 vim.lsp.enable("solargraph")
 vim.lsp.enable("pyright")
 vim.lsp.enable("dartls")
+require("stixcode.lsp.java")
 
 -- COMANDS TO LSP
 vim.api.nvim_create_user_command('LspLog', function ()

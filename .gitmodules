@@ -73,3 +73,6 @@
 [submodule "pack/language-support/start/twiggy"]
 	path = pack/language-support/start/twiggy
 	url = https://github.com/moetelo/twiggy.git
+[submodule "pack/core/start/nvim-dap"]
+	path = pack/core/start/nvim-dap
+	url = https://github.com/mfussenegger/nvim-dap.git
