@@ -76,3 +76,6 @@
 [submodule "pack/core/start/nvim-dap"]
 	path = pack/core/start/nvim-dap
 	url = https://github.com/mfussenegger/nvim-dap.git
+[submodule "pack/core/start/runtask"]
+	path = pack/core/start/runtask
+	url = https://github.com/ericktucto/runtask.git
